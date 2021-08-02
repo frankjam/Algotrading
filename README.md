@@ -1,7 +1,7 @@
 # Algotrading
 A trading bot that uses RSI to determine
 
-<ol>
-<li>**Overbought**</li>
-<li>**Oversold**</li>
-</ol>
+
+** Overbought at 70 and above **
+** Oversold at 30 and below **
+
