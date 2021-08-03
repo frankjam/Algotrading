@@ -2,8 +2,11 @@ import urllib.request
 import talib
 import pandas as pd
 import yfinance as yf
-
+from datetime import date
 ticker = "BTC-USD"
+start ='2021-01-01'
+end= date.today()
+
 def connect():
     try:
         urllib.request.urlopen('http://google.com') #Python 3.x
@@ -13,7 +16,7 @@ def connect():
 
 if(connect()):
     print( '\t***connected***\n' )
-    data = yf.download(ticker, start="2021-01-01", end="2021-04-30")
+    data = yf.download(ticker, start=start, end=end)
 else: 
     print('no internet!')
 
