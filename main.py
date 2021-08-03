@@ -1,7 +1,9 @@
 import urllib.request
 import talib
 import pandas as pd
+import yfinance as yf
 
+ticker = "BTC-USD"
 def connect():
     try:
         urllib.request.urlopen('http://google.com') #Python 3.x
@@ -9,10 +11,13 @@ def connect():
     except:
         return False
 
-print( 'connected' if connect() else 'no internet!' )
+if(connect()):
+    print( '\t***connected***\n' )
+    data = yf.download(ticker, start="2021-01-01", end="2021-04-30")
+else: 
+    print('no internet!')
 
-df = pd.read_csv('BTC-USD.csv')
-close = df['Close']
+close = data['Close']
 rsi = talib.RSI(close, timeperiod=14)
 i = 0
 for rs in rsi:
